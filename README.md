@@ -25,7 +25,27 @@ Product:
 
 ## Development
 
-TODO
+First go to https://script.google.com - this will create new google apps
+script.
+
+You will need `gapps` tool. Installation and configuration instructions can be
+found here: https://github.com/danthareja/node-google-apps-script
+
+After doing `gapps auth /path/to/client-secret.json` you do not need to do
+`gapps init`, you want just copy example config:
+
+```bash
+cp gapps.config.json.example gapps.config.json
+```
+
+And edit `fileId` in `gapps.config.json` to be equal to the google drive ID of
+your google apps script.
+
+After that you should be able to run `gapps upload`, which should update code
+in `script.google.com` web UI. (May require page reload or file
+closing/opening).
+
+At this point you can proceed with making changes to the code.
 
 ## Contributing
 
