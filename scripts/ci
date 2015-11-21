@@ -4,7 +4,7 @@ set -e
 
 mkdir -p .build
 cat src/*.js > .build/ci.js
-echo "console.log(Suite.run())" >> .build/ci.js
+echo "Suite.runbang()" >> .build/ci.js
 
 docker run \
   --rm \

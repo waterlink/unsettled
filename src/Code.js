@@ -1,3 +1,3 @@
 function doGet(e) {
-  return ContentService.createTextOutput(Suite.run()).setMimeType(ContentService.MimeType.TEXT)
+  return ContentService.createTextOutput(Suite.run().output).setMimeType(ContentService.MimeType.TEXT)
 }

@@ -23,13 +23,25 @@ var Suite = (function() {
       testMap[i].fn(Suite)
     }
 
-    return output + "\n\nTests: " + tests + ", failures: " + failures + "\n"
+    return {
+      output: output + "\n\nTests: " + tests + ", failures: " + failures + "\n",
+      failures: failures,
+    }
+  }
+
+  var runbang = function() {
+    var report = Suite.run()
+    console.log(report.output)
+    if (report.failures > 0) {
+      process.exit(1)
+    }
   }
 
   return {
     test: test,
     error: error,
     run: run,
+    runbang: runbang,
   }
 }())
 
