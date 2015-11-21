@@ -2,4 +2,14 @@
 
 set -e
 
-echo "STUB"
+mkdir -p .build
+cat src/*.js > .build/ci.js
+echo "console.log(Suite.run())" >> .build/ci.js
+
+docker run \
+  --rm \
+  -v $(pwd):$(pwd) \
+  -w $(pwd) \
+  -u $UID:$GID \
+  waterlink/unsettled-gapps \
+  node .build/ci.js
